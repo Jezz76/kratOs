@@ -1,0 +1,71 @@
+
+/* Reset margin dan padding */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Pastikan body dan html memiliki tinggi 100% */
+}
+
+/* Container utama */
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Memastikan kontainer setinggi viewport penuh */
+    overflow: hidden; /* Mencegah konten meluap */
+}
+
+/* Gambar background */
+.container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Membuat gambar memenuhi area tanpa distorsi */
+    z-index: -1; /* Menempatkan gambar di belakang elemen lainnya */
+}
+
+/* Overlay */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Posisikan subtitle di bawah */
+    padding-bottom: 10%; /* Tambahkan jarak dari bawah */
+}
+
+/* Subtitle */
+.subtitle {
+    font-size: 9rem; /* Ukuran font */
+    font-weight: bold;
+    text-transform: uppercase;
+    color: transparent; /* Warna teks transparan */
+    position: relative;
+    padding-bottom: 125px; /* Jarak bawah dari teks */
+}
+
+/* Inner Text dengan background */
+.subtitle .inner-text {
+    background: url('../wallpaper/wallpaper5.jpg'); /* Gunakan gambar yang sama */
+    background-size: 100% 100%; /* Pastikan ukuran gambar sesuai dengan teks */
+    background-position: center; /* Posisi gambar agar sesuai dengan teks */
+    background-clip: text; /* Potong latar sesuai bentuk teks */
+    -webkit-background-clip: text; /* Kompatibilitas dengan browser */
+    color: transparent; /* Teks sepenuhnya transparan */
+    
+    /* Garis luar silver kemerahan */
+    -webkit-text-stroke: 1px rgba(225, 174, 174, 0.8); /* Garis luar dengan warna merah ke silver */
+    
+    position: relative; /* Menjadikan teks sebagai elemen yang dapat memiliki pseudo-element */
+    padding-bottom: 39%;
+    padding-top: 20%; /* Menyesuaikan posisi teks vertikal */
+    user-select: none; /* Mencegah teks untuk dipilih */
+    
+    /* Menambahkan efek bayangan kemerah-merahan */
+    text-shadow:  3px 5px 0 0 25px rgba(255, 6, 6, 0.8), 0 0 5px rgba(202, 89, 89, 0.6);
+}
+

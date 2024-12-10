@@ -1,0 +1,387 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  background-color: black;
+  overflow-x: hidden;
+}
+
+/* Container utama untuk scroll vertikal */
+.container {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden; /* Menghilangkan scroll horizontal */
+  overflow-y: auto; /* Pastikan scroll hanya vertikal */
+}
+
+.section {
+  width: 100%;
+  min-height: 100vh; /* Setiap bagian mengisi penuh layar */
+}
+
+.section-header {
+  font-size: 3.5em;
+  color: #4A90E2;
+  margin-bottom: 10px;
+  margin-top: 0;
+  font-family: 'Roboto', sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  text-align: center;
+}
+
+.system-requirements-section .row {
+  display: flex;
+  flex-wrap: wrap; /* Membuat responsif jika layar kecil */
+  gap: 20px; /* Jarak antara elemen */
+  justify-content: space-between; /* Membagi ruang secara merata */
+}
+
+.system-requirements-section .row .card {
+  flex: 1 1 calc(50% - 20px); /* Setiap kartu mengambil 50% lebar */
+  box-sizing: border-box; /* Pastikan padding tidak menambah lebar total */
+}
+
+/* Media query for mobile responsiveness */
+@media (max-width: 768px) {
+  .system-requirements-section .row .card {
+      flex: 1 1 100%; /* Pada layar kecil, kartu menjadi vertikal */
+  }
+
+  .section-header {
+      font-size: 2.5em; /* Menyesuaikan ukuran font di layar kecil */
+  }
+
+  .header {
+      flex-direction: column; /* Mengubah layout header menjadi kolom */
+      align-items: center; /* Mengatur elemen ke tengah */
+  }
+
+  .nav {
+      flex-direction: column; /* Mengubah menu menjadi vertikal */
+      align-items: center; /* Mengatur menu ke tengah */
+      margin-top: 10px; /* Memberikan jarak di atas menu */
+  }
+
+  .nav a {
+      font-size: 12px; /* Menyesuaikan ukuran font menu untuk layar kecil */
+      margin: 5px 0; /* Memberikan jarak antar item menu */
+  }
+
+  .content h1 {
+      font-size: 50px; /* Menyesuaikan ukuran font judul di layar kecil */
+      left: 5%; /* Mengurangi jarak dari kiri */
+      transform: translateY(-50%); /* Mengatur kembali transformasi */
+  }
+
+  .buttons a {
+      padding: 8px 16px; /* Menyesuaikan padding tombol */
+      font-size: 12px; /* Menyesuaikan ukuran font tombol */
+  }
+
+  .gameplay-left {
+      padding: 10px; /* Mengurangi padding di gameplay */
+  }
+
+  .gameplay-right iframe {
+      max-width: 100%; /* Memastikan video tidak terlalu besar */
+      height: auto; /* Memastikan video responsif */
+  }
+
+  .preorder-text {
+      font-size: 10px; /* Menyesuaikan ukuran font untuk teks preorder */
+  }
+
+  .corner-icons img {
+      width: 40px; /* Menyesuaikan ukuran ikon */
+      height: 40px;
+  }
+}
+
+.section:first-child {
+  background: url('wallpaper/wallpaper1.jpg') no-repeat center center/cover;
+  position: relative;
+}
+
+/* Halaman kedua (gameplay) memastikan tidak ada scroll tambahan */
+.section:nth-child(2) {
+  background: url('wallpaper/wallpaper2.png') no-repeat center center/cover;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between; /* Membagi area kiri dan kanan */
+  align-items: center;
+  text-align: left;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  position: sticky; /* Membuat menu tetap diam */
+  top: 0; /* Letakkan di atas saat scroll */
+  background: transparent; /* Menghilangkan background hitam */
+  z-index: 100; /* Menjamin bahwa menu berada di atas konten lainnya */
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+}
+
+.profile img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.name {
+  margin-left: 10px; /* Memberikan jarak antara gambar profil dan nama */
+}
+
+.nav {
+  display: flex;
+  justify-content: flex-start; /* Letakkan menu di kanan */
+  gap: 20px; /* Memberikan jarak antar menu */
+  margin-left: auto; /* Memberikan jarak lebih banyak di sebelah kiri */
+}
+
+.nav a {
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+}
+
+.content h1 {
+  font-size: 100px;
+  color: transparent; /* Pastikan teks transparan */
+  background: url('wallpaper/wallpaper1.jpg'); /* Gunakan gambar wallpaper1 sebagai latar belakang teks */
+  background-size: cover; /* Pastikan gambar mengisi area teks */
+  -webkit-background-clip: text; /* Kompatibilitas dengan browser */
+  background-clip: text; /* Membuat latar belakang sesuai bentuk teks */
+  text-fill-color: transparent; /* Pastikan teks tetap transparan */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Tambahkan bayangan agar teks lebih terbaca */
+  user-select: none;
+  -webkit-text-stroke: 0.5px lightblue;
+}
+
+.buttons a {
+  text-decoration: none;
+  padding: 10px 20px;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+/* Ikon di pojok kanan bawah */
+.corner-icons {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.corner-icons img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 5px;
+  transition: transform 0.3s ease, background 0.3s ease;
+  cursor: pointer;
+}
+
+.corner-icons img:hover {
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Gaya halaman gameplay */
+.gameplay-left {
+  flex: 1;
+  text-align: left; /* Mengubah text-align menjadi kiri */
+  padding: 20px;
+  margin: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Memberikan latar belakang hitam transparan */
+  border-radius: 10px; /* Membuat sudut lebih halus */
+}
+
+.gameplay-left h1 {
+  font-size: 3.5em;
+  color: transparent; /* Pastikan teks transparan */
+  background: url('wallpaper/wallpaper2.png'); /* Gunakan gambar wallpaper2 sebagai latar belakang teks */
+  background-size: cover; /* Pastikan gambar mengisi area teks */
+  -webkit-background-clip: text; /* Kompatibilitas dengan browser */
+  background-clip: text; /* Membuat latar belakang sesuai bentuk teks */
+  text-fill-color: transparent; /* Pastikan teks tetap transparan */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Tambahkan bayangan agar teks lebih terbaca */
+  -webkit-text-stroke: 0.1px white;
+  user-select: none;
+}
+
+.gameplay-left p {
+  font-size: 1.1em;
+  line-height: 1.8;
+  color: #d3d3d3; /* Warna abu-abu terang agar lebih nyaman untuk dibaca */
+  max-width: 100%;
+  text-align: justify; /* Menambahkan ini untuk membuat teks justified */
+  margin-bottom: 20px;
+}
+
+.gameplay-left ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.gameplay-left p, .gameplay-left ul {
+  font-size: 1.0em;
+  line-height: 2.0;
+  margin: 0; /* Pastikan tidak ada margin tambahan */
+  padding: 0; /* Pastikan tidak ada padding tambahan */
+  max-width: 100%; /* Menggunakan lebar penuh */
+  text-align: justify; /* Menambahkan ini untuk membuat teks justified */
+}
+
+.gameplay-left li {
+  color: #d3d3d3; /* Mengubah warna teks menjadi abu-abu terang */
+  font-size: 1.1em;
+  line-height: 1.8;
+  margin-bottom: 10px;
+  font-weight: 400; /* Mengatur ketebalan font agar lebih ringan */
+  transition: color 0.3s ease;
+}
+
+.gameplay-left ul li:not(:last-child) {
+  padding-bottom: 1px; /* Memberikan jarak di bawah item list */
+}
+
+.gameplay-left p, .gameplay-left ul {
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.gameplay-left p:hover, .gameplay-left ul:hover {
+  opacity: 1;
+}
+
+.gameplay-left ul li {
+  color: #d3d3d3; /* Mengubah warna teks menjadi abu-abu terang */
+  font-size: 1.1em;
+  line-height: 1.8;
+  margin-bottom: 10px;
+  font-weight: 400; /* Mengatur ketebalan font agar lebih ringan */
+  padding: 10px; /* Memberikan padding di dalam kotak */
+  border: 2px solid #535659; /* Menambahkan border untuk kotak */
+  border-radius: 5px; /* Menambahkan sudut melengkung */
+  transition: background-color 0.3s ease; /* Menambahkan transisi saat hover */
+}
+
+.gameplay-left ul li:hover {
+  background-color: #333; /* Mengubah warna latar belakang saat hover */
+}
+
+/* Video YouTube di sebelah kanan */
+.gameplay-right {
+  flex: 1;
+  text-align: center;
+  padding: 20px;
+}
+
+.gameplay-right iframe {
+  width: 100%;
+  height: 100%;
+  max-width: 600px;
+  max-height: 400px;
+  border: none;
+}
+
+.bottom-section {
+  position: absolute;
+  bottom: 5%;
+  width: 100%;
+  text-align: center;
+}
+
+/* Rating Review Section */
+.rating-review-section {
+  background-color: black;
+  color: white;
+  padding: 50px 20px;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.rating-review-section .quote {
+  margin-top: 20px;
+  font-style: italic;
+  font-size: 1.5em;
+}
+
+.rating-review-section .rating {
+  margin-bottom: 20px;
+}
+
+.rating i {
+  color: #fff;
+  font-size: 1.5em;
+}
+
+/* Teks Preorder di bawah kiri */
+.preorder-text {
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  font-size: 12px;
+  font-style: italic;
+  color: white;
+  opacity: 0.8;
+}
+
+.system-requirements-section {
+  background: url('wallpaper/wallpaper3.jpg') no-repeat center center fixed;
+  background-size: cover;
+  padding: 50px 40px; /* Tambahkan padding agar konten memiliki ruang */
+  color: white; /* Pastikan teks tetap terlihat */
+}
+
+.system-requirements-section h1 {
+  font-size: 3.5em;
+  color: transparent; /* Membuat teks transparan */
+  background: url('wallpaper/wallpaper3.jpg'); /* Gunakan gambar wallpaper3 sebagai latar belakang teks */
+  background-size: cover; /* Pastikan gambar mengisi area teks */
+  -webkit-background-clip: text; /* Kompatibilitas dengan browser */
+  background-clip: text; /* Membuat latar belakang hanya di area teks */
+  text-fill-color: transparent; /* Pastikan teks tetap transparan */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Menambahkan bayangan agar teks lebih terbaca */
+  -webkit-text-stroke: 0.5px rgb(109, 233, 255);
+  user-select: none;
+}
+
+.system-requirements-section .card {
+  background: rgba(0, 0, 0, 0.7); /* Tambahkan latar belakang transparan pada kartu */
+  padding: 20px;
+  border-radius: 50px;
+  margin: 20px 0; /* Jarak antar kartu */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Bayangan untuk kartu */
+  font-size: 20px;
+}
+
+.system-requirements-section .card h2 {
+  text-align: center;
+  color: #00ffff; /* Ubah warna judul agar lebih menonjol */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Tambahkan efek bayangan pada teks */
+}

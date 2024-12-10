@@ -1,0 +1,91 @@
+
+/* Reset margin dan padding */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Pastikan body dan html memiliki tinggi 100% */
+}
+
+/* Halaman kedua (Wallpaper 6 sebagai background) */
+.section-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Pastikan halaman kedua mengisi layar */
+    background: url('../wallpaper/wallpaper6.jpg'); /* Gunakan wallpaper6.jpg sebagai background */
+    background-size: cover;
+    background-position: center;
+    position: relative; /* Tambahkan untuk menempatkan overlay */
+}
+
+/* Overlay gelap */
+.section-2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Warna gelap dengan transparansi */
+    z-index: 2; /* Menempatkan overlay di atas gambar */
+}
+
+/* Kontainer untuk gambar dan teks */
+.content {
+    display: flex;
+    width: 100%; /* Mengatur lebar konten */
+    height: 100%; /* Pastikan konten mengambil seluruh tinggi layar */
+    position: relative;
+    z-index: 3; /* Pastikan konten berada di atas overlay */
+}
+
+/* Gambar di kiri */
+.image {
+    position: relative;
+    width: 50%; /* Gambar mengambil 50% dari lebar layar */
+    height: 100%; /* Tinggi gambar 100% dari tinggi layar */
+}
+
+.image img {
+    position: absolute;
+    left: 0;
+    bottom: 0; /* Menempel pada bagian bawah */
+    width: 100%; /* Gambar memenuhi lebar 100% dari area gambar */
+    height: 85vh; /* Gambar mengambil 85% dari tinggi layar */
+    object-fit: cover; /* Membuat gambar mengisi area tanpa distorsi */
+}
+
+/* Teks di kanan */
+.text1 {
+    width: 50%; /* Teks mengambil 50% dari lebar layar */
+    padding: 20px;
+    color: silver; /* Warna teks silver */
+    font-size: 1.2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertikal center teks */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Menambahkan efek bayangan pada teks */
+}
+
+.text1 h1 {
+    font-family: Staatliches;
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-align: center;
+    -webkit-background-clip: text; /* Membuat background mengisi teks */
+    background-clip: text;
+    text-shadow: 2x 2px 3px #ff0000; /* Efek bayangan untuk kedalaman */
+    -webkit-text-stroke: 0.6px #ff0000; /* Garis luar silver */
+    user-select: none; /* Mencegah teks untuk dipilih */
+}
+
+.text1 p {
+    font-family: Staatliches;
+    text-align: justify;
+    font-size: 1.4em;
+    line-height: 1.8;
+    margin-bottom: 120px;
+    text-shadow: 3px 4px 6px #ff0000; /* Efek bayangan untuk kedalaman */
+    -webkit-text-stroke: 0.2px silver; /* Garis luar silver */
+    user-select: none; /* Mencegah teks untuk dipilih */
+}
